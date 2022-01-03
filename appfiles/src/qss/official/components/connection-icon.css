@@ -1,0 +1,17 @@
+#connection {
+  position: relative;
+  bottom: -6px;
+  width: 6%;
+
+  display: inline-block;
+  animation: 1s infinite alternate flickerbrightness;
+}
+
+@keyframes flickerbrightness {
+    0%   {
+        filter: brightness(0);
+    }
+    100% {
+        filter: brightness(1);
+    }
+}

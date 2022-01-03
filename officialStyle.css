@@ -1,0 +1,257 @@
+@font-face {
+    font-family: "beaufort-bold";
+    src: url("../font/Beaufort-Bold.ttf");
+}
+
+@font-face {
+    font-family: "beaufort-regular";
+    src: url("../font/Beaufort-Regular.ttf");
+}
+
+body {
+    background-image: url("../img/bg.png");
+    background-size: cover;
+    background-repeat-x: no-repeat;
+    background-repeat-y: repeat;
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    color: #fff;
+    line-height: 30px;
+    text-align: center;
+}
+
+strong {
+    font-weight: 600;
+}
+
+a, a:hover, a:focus {
+    color: #A57D35;
+    text-decoration: none;
+    transition: color .3s;
+}
+
+h1, h2 {
+    margin-top: 10px;
+    margin-bottom: 40px;
+    font-family: 'beaufort-bold', sans-serif;
+    font-size: 3rem;
+    font-weight: 300;
+    line-height: 3rem;
+    color: #B2B2B2;
+}
+
+h2 {
+    font-size: 1.8rem;
+}
+
+.navbar {
+    background-color: #131920;
+    border-bottom: 1px solid #735828;
+    padding: 0;
+}
+
+body .navbar-dark .navbar-nav .nav-link {
+    color: white;
+    font-size: 18px;
+    font-family: 'beaufort-bold', sans-serif;
+    padding: 1.2rem 1rem 0.5rem 1rem;
+}
+
+.nav-item-selected > a {
+    color: #A57D35 !important;
+    background-image: url('../img/spotlight.png');
+    background-size: 135px;
+    background-repeat: no-repeat;
+    background-position-x: center;
+    background-position-y: 25px;
+}
+
+.top-content {
+    padding: 75px 0;
+}
+
+.top-content .text h1 {
+    margin-top: 25px;
+}
+
+.description {
+    margin: 30px 0 10px 0;
+}
+
+.download-button {
+    display: block;
+    margin-top: 40px;
+    margin-bottom: 40px;
+    color: #A57D35;
+    font-family: 'beaufort-bold', sans-serif;
+    font-size: 1.8rem;
+    font-weight: 300;
+    line-height: 3rem;
+    background-image: url('../img/spotlight.png');
+    background-size: 200px;
+    background-repeat: no-repeat;
+    background-position-x: center;
+    background-position-y: 0;
+    padding-bottom: 20px;
+}
+
+.top-content .top-big-link {
+    margin-top: 45px;
+    cursor: pointer;
+}
+
+.top-content .top-big-link img {
+    width: 20%;
+}
+
+.story {
+    margin-top: 80px;
+}
+
+.story > div {
+    margin: auto;
+    padding-left: 2.5%;
+    padding-right: 2.5%;
+}
+
+.about-us-container img.rounded-circle {
+    height: 150px;
+}
+
+.about-us-container h3 {
+    margin-top: 40px;
+}
+
+.about-us-container .social img {
+    height: 25px;
+    margin: 5px;
+}
+
+.about-us-container .social {
+    margin-bottom: 80px;
+}
+
+.faq-container {
+    margin-bottom: 40px;
+}
+
+.faq-container .question {
+    font-family: 'beaufort-bold', sans-serif;
+    color: #A57D35;
+    text-align: left;
+}
+
+.faq-container .question::before {
+    content: 'Q: ';
+}
+
+.faq-container .answer {
+    font-family: 'roboto', sans-serif;
+    color: white;
+    text-align: left;
+}
+
+.faq-container .answer::before {
+    content: 'A: ';
+    color: #A57D35;
+    font-family: 'beaufort-bold', sans-serif;
+}
+
+.faq-container p {
+    line-height: normal;
+}
+
+.footer-container {
+    min-height: 100px;
+    background-color: #131920;
+    padding-top: 20px;
+}
+
+.footer-nav {
+    text-align: left;
+    list-style: none;
+    padding: 0;
+}
+
+.footer-nav a {
+    color: white;
+}
+
+.footer-nav a:hover {
+    color: rgba(255, 255, 255, .75);
+}
+
+.footer-container .col-md-4, .footer-container .col-md-3 {
+    padding: 20px 0 0;
+}
+
+.footer-container .social img {
+    height: 35px;
+    margin: 5px;
+}
+
+.footer-container .social {
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+
+.footer-container h3 {
+    color: #4093FF;
+}
+
+.footer-contact {
+    text-align: right;
+    list-style: none;
+    padding: 0;
+    color: #4093FF;
+}
+
+.footer-contact img {
+    height: 25px;
+    margin: 5px;
+}
+
+.footer-contact .social {
+    margin-bottom: 0;
+    margin-top: 0;
+}
+
+.footer-contact span {
+    padding-right: 20px;
+}
+
+@media (max-width: 530px) {
+
+    .footer-container .col-md-4, .footer-container .col-md-3 {
+        text-align: left;
+        padding-left: 40px;
+        padding-right: 40px;
+    }
+    .footer-contact {
+        text-align: left;
+        padding-left: 10px;
+    }
+
+    body .navbar-dark .navbar-nav .nav-link {
+        font-size: 14px;
+        padding: 1rem 1rem 0.3rem 1rem;
+    }
+
+    #navbarNav {
+        margin: auto;
+    }
+
+    .container {
+        padding-left: 25px;
+        padding-right: 25px;
+    }
+
+    .nav-item-selected > a {
+        background-position-y: 18px;
+    }
+
+    .story img {
+        padding-bottom: 40px;
+    }
+
+}

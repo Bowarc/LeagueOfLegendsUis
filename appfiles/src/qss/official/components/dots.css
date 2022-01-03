@@ -1,0 +1,44 @@
+.dot:hover {
+  cursor: pointer;
+  background-clip: unset;
+  background-color: #cdbe91 !important;
+}
+
+.dot {
+  height: 6px;
+  width: 6px;
+  padding: 2px;
+  border: 2px solid #675229;
+  border-radius: 50%;
+  background-clip: content-box;
+  display: inline-block;
+}
+
+.dot.selected {
+  background-color: #675229;
+}
+
+#dots {
+  top: 80px;
+  position: absolute;
+}
+
+#dots > * {
+  display: inline-block;
+  margin: 0 5px;
+}
+
+.side {
+  z-index: 9999999;
+  background: linear-gradient(to left, #785B28 0%, #C89C3C 55%, #C8A355 71%, #C8AA6E 100%);
+  width: 4%;
+  position: fixed;
+  height: 100%;
+  opacity: 0.4;
+  visibility: hidden;
+}
+
+.side-right {
+  background: linear-gradient(to right, #785B28 0%, #C89C3C 55%, #C8A355 71%, #C8AA6E 100%);
+  right: 0;
+}

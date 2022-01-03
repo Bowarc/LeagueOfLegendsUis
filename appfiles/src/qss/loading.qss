@@ -1,0 +1,12 @@
+#Window{
+    background: "#010a13";
+    /*font-family: "D:/Dev/Python/Pcfixe/LoLUis/appfiles/src/font/Beaufort Bold.ttf";*/
+}
+QLabel{
+    font-family: "BeaufortforLOL-Regular";
+    font-size: 25px;
+    color: "#d0ae67";
+    border:  2px solid red;
+    text-align: center;
+    /*padding: 10px;*/
+}
