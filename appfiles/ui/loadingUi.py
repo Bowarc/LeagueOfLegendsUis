@@ -1,6 +1,6 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
 from PyQt5.QtWidgets import QWidget, QShortcut
-from PyQt5.QtGui import QKeySequence, QPixmap, QFont, QPainter, QColor, QPen
+from PyQt5.QtGui import QKeySequence, QPixmap, QFont, QPainter, QColor, QPen, QLinearGradient
 from PyQt5.QtCore import Qt, QTimer
 
 import math
@@ -43,7 +43,7 @@ class loadingWindow(QWidget):
         # init the rotating lines
         self.animation_angle = 0
         self.animation_line_size = 10
-        self.animation_line_distaance_from_center = 320
+        self.animation_line_distaance_from_center = 280
         self.animation_line_color = "#252929"
         self.animation_rotating_speed = 10  # degree per seccond
         self.animation_last_angle_update = time.time()
@@ -52,12 +52,16 @@ class loadingWindow(QWidget):
         self.animation_painterUpdateTimer.timeout.connect(self.update)
         self.animation_painterUpdateTimer.start(0)
 
+        # init the outer lines
+        self.outer_lines_size = 500
+        self.outer_lines_distance_from_center = 500
+
     def setupUi(self):
         self.setObjectName("Window")
 
         logo_size = (501, 199)
-        logo_pos = (self.get_size()[0]/2-logo_size[0]/2,
-                    self.get_size()[1]/2-logo_size[1]/2 - 70)
+        logo_pos = (self.get_size()[0]/2-logo_size[0]/2 + 10,
+                    self.get_size()[1]/2-logo_size[1]/2 - 40)
 
         self.logoLabel = QtWidgets.QLabel(self)
         self.logoLabel.setGeometry(QtCore.QRect(
@@ -68,7 +72,7 @@ class loadingWindow(QWidget):
 
         loading_size = (110, 30)
         loading_pos = (self.get_size()[0]/2 - loading_size[0] / 2,
-                       self.get_size()[1]/2 - loading_size[1] / 2 + 70)
+                       self.get_size()[1]/2 - loading_size[1] / 2 + 100)
         self.loadingLabel = QtWidgets.QLabel("LOADING", self)
         self.loadingLabel.setGeometry(QtCore.QRect(
             loading_pos[0], loading_pos[1], loading_size[0], loading_size[1]))
@@ -79,7 +83,7 @@ class loadingWindow(QWidget):
         )
         loadingBar_pos = (
             self.get_size()[0]/2 - loadingBar_size[0]/2,
-            self.get_size()[1]/2 - loadingBar_size[1]/2 + 100,
+            self.get_size()[1]/2 - loadingBar_size[1]/2 + 120,
         )
         self.loadingBar = QtWidgets.QProgressBar(self)
         self.loadingBar.setGeometry(QtCore.QRect(
@@ -144,7 +148,30 @@ class loadingWindow(QWidget):
 
             painter.drawLine(point1[0], point1[1], point2[0], point2[1])
 
-        painter.drawPoint(point1[0], point1[1])
+        outer_ray_number = 150
+        for i in range(outer_ray_number):
+            angle = i * (360 / outer_ray_number)
+            point1 = physics.rotate_point(origin, (
+                self.get_size()[0]/2 +
+                self.outer_lines_distance_from_center,
+                self.get_size()[1]/2
+            ), angle)
+
+            point2 = physics.rotate_point(origin, (
+                self.get_size()[0]/2 +
+                self.outer_lines_distance_from_center + self.outer_lines_size,
+                self.get_size()[1]/2
+            ), angle)
+            gradient = QLinearGradient(QtCore.QPoint(
+                point1[0], point1[1]), QtCore.QPoint(point2[0], point2[1]))
+            gradient.setColorAt(0, QColor("#252929"))
+            gradient.setColorAt(1, QColor("#2529298C"))
+            pen = QtGui.QPen(
+                QColor(self.animation_line_color), 0.20, Qt.SolidLine)
+            pen.setBrush(gradient)
+            painter.setPen(pen)
+            painter.drawLine(point1[0], point1[1], point2[0], point2[1])
+
         painter.end()
 
     def update_painter_angle(self):
