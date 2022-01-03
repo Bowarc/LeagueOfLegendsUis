@@ -53,7 +53,7 @@ class loadingWindow(QWidget):
         self.animation_painterUpdateTimer.start(0)
 
         # init the outer lines
-        self.outer_lines_size = 250
+        self.outer_lines_size = 230
         self.outer_lines_distance_from_center = 500
 
         # init the diamonds
@@ -163,7 +163,7 @@ class loadingWindow(QWidget):
             painter.drawLine(point1.x(), point1.y(), point2.x(), point2.y())
 
         # draw the outer lines
-        outer_ray_number = 150
+        outer_ray_number = 250
         for i in range(outer_ray_number):
             angle = (i + 0.5) * (360 / outer_ray_number)
             point1 = physics.rotate_point(origin, QPoint(
@@ -179,10 +179,10 @@ class loadingWindow(QWidget):
             ), angle)
             circle_gradient = QLinearGradient(QtCore.QPoint(
                 point1.x(), point1.y()), QtCore.QPoint(point2.x(), point2.y()))
-            circle_gradient.setColorAt(0, QColor("#2e3333"))
-            circle_gradient.setColorAt(1, QColor("#181b1b"))
+            circle_gradient.setColorAt(0, QColor("#272b2b"))
+            circle_gradient.setColorAt(1, QColor(10, 10, 10))
             pen = QtGui.QPen(
-                QColor(self.animation_line_color), 0.20, Qt.SolidLine)
+                QColor(self.animation_line_color), 0.4, Qt.SolidLine)
             pen.setBrush(circle_gradient)
             painter.setPen(pen)
             painter.drawLine(point1.x(), point1.y(), point2.x(), point2.y())
