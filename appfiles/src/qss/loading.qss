@@ -3,10 +3,30 @@
     /*font-family: "D:/Dev/Python/Pcfixe/LoLUis/appfiles/src/font/Beaufort Bold.ttf";*/
 }
 QLabel{
-    font-family: "BeaufortforLOL-Regular";
-    font-size: 25px;
+    font-family: "BeaufortforLOL-Bold";
+    font-size: 20px;
     color: "#d0ae67";
-    border:  2px solid red;
+    /*border:  2px solid red;*/
     text-align: center;
     /*padding: 10px;*/
+    letter-spacing:  1px;
+}
+
+QProgressBar {
+    border: 1px solid "#ca6";
+    border-radius: 5px;
+    text-align: center;
+    background: transparent;
+    color: transparent;
+}
+QProgressBar::chunk {
+    border-radius: 4px;
+
+    background: qlineargradient(
+        x0:1 y0:0,
+        x1:1 y1:0,
+        stop:0 #7cd,
+        stop:1 #058
+    );
+
 }

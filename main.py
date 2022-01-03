@@ -11,7 +11,7 @@ if __name__ == "__main__":
     qapp = QApplication([])
 
     l = logger.logger(level=0, logFile="LoLUis.log",
-                      custom_exception_hook=True)
+                      custom_exception_hook=False)
 
     app = app.App(l)
 
