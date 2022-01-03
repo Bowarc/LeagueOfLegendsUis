@@ -1,12 +1,36 @@
 import appfiles.ui.loadingUi as loadingUi
 
+from PyQt5.QtWidgets import QApplication
+
 
 class App:
     def __init__(self, logger):
         self.logger = logger
 
-        self.loadingUi = loadingUi.loadingWindow(self.logger)
+        self.qApp = QApplication([])
 
     def run(self):
-        self.logger.debug("Start of the run function")
+        self.runLoggin()
+        self.runLoading()
+        self.runClient()
+
+    def runLoggin(self):
+        self.logger.debug("Login")
+        pass
+
+        self.logger.debug("Login end")
+
+    def runLoading(self):
+        self.logger.debug("Loading")
+        self.loadingUi = loadingUi.loadingWindow(self.logger)
         self.loadingUi.show()
+
+        self.qApp.exec()
+
+        self.logger.debug("Loading end")
+
+    def runClient(self):
+        self.logger.debug("Client")
+        pass
+
+        self.logger.debug("Client end")

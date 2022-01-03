@@ -1,1 +1,6 @@
-[08:01:20] [app:11] [Thread:(MainThread)] DEBUG: Start of the run function
+[11:44:44] [app:18] [Thread:(MainThread)] DEBUG: Login
+[11:44:44] [app:21] [Thread:(MainThread)] DEBUG: Login end
+[11:44:44] [app:24] [Thread:(MainThread)] DEBUG: Loading
+[11:44:47] [app:30] [Thread:(MainThread)] DEBUG: Loading end
+[11:44:47] [app:33] [Thread:(MainThread)] DEBUG: Client
+[11:44:47] [app:36] [Thread:(MainThread)] DEBUG: Client end
