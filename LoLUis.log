@@ -1,6 +1,6 @@
-[11:59:11] [app:18] [Thread:(MainThread)] DEBUG: Login
-[11:59:11] [app:21] [Thread:(MainThread)] DEBUG: Login end
-[11:59:11] [app:24] [Thread:(MainThread)] DEBUG: Loading
-[12:00:50] [app:30] [Thread:(MainThread)] DEBUG: Loading end
-[12:00:50] [app:33] [Thread:(MainThread)] DEBUG: Client
-[12:00:50] [app:36] [Thread:(MainThread)] DEBUG: Client end
+[02:54:14] [app:18] [Thread:(MainThread)] DEBUG: Login
+[02:54:14] [app:20] [Thread:(MainThread)] DEBUG: Login end
+[02:54:14] [app:23] [Thread:(MainThread)] DEBUG: Loading
+[02:54:28] [app:30] [Thread:(MainThread)] DEBUG: Loading end
+[02:54:28] [app:33] [Thread:(MainThread)] DEBUG: Client
+[02:54:28] [app:35] [Thread:(MainThread)] DEBUG: Client end

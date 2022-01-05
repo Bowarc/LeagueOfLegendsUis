@@ -16,12 +16,12 @@ class App:
 
     def runLoggin(self):
         self.logger.debug("Login")
-        pass
 
         self.logger.debug("Login end")
 
     def runLoading(self):
         self.logger.debug("Loading")
+
         self.loadingUi = loadingUi.loadingWindow(self.logger)
         self.loadingUi.show()
 
@@ -31,6 +31,5 @@ class App:
 
     def runClient(self):
         self.logger.debug("Client")
-        pass
 
         self.logger.debug("Client end")

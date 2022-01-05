@@ -9,8 +9,8 @@ def rotate_point(origin, point, angle):
     px, py = point.x(), point.y()
 
     return QPoint(
-        ox + math.cos(angle) * (px - ox) - math.sin(angle) * (py - oy),
-        oy + math.sin(angle) * (px - ox) + math.cos(angle) * (py - oy),
+        int(ox + math.cos(angle) * (px - ox) - math.sin(angle) * (py - oy)),
+        int(oy + math.sin(angle) * (px - ox) + math.cos(angle) * (py - oy)),
     )
 
 

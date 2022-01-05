@@ -70,8 +70,8 @@ class loadingWindow(QWidget):
         self.setObjectName("Window")
 
         logo_size = (501, 199)
-        logo_pos = (self.get_size()[0]/2-logo_size[0]/2 + 10,
-                    self.get_size()[1]/2-logo_size[1]/2 - 40)
+        logo_pos = (int(self.get_size()[0]/2-logo_size[0]/2 + 10),
+                    int(self.get_size()[1]/2-logo_size[1]/2 - 40))
 
         self.logoLabel = QtWidgets.QLabel(self)
         self.logoLabel.setGeometry(QtCore.QRect(
@@ -81,8 +81,8 @@ class loadingWindow(QWidget):
         self.logoLabel.setObjectName("logo")
 
         loading_size = (110, 30)
-        loading_pos = (self.get_size()[0]/2 - loading_size[0] / 2,
-                       self.get_size()[1]/2 - loading_size[1] / 2 + 100)
+        loading_pos = (int(self.get_size()[0]/2 - loading_size[0] / 2),
+                       int(self.get_size()[1]/2 - loading_size[1] / 2 + 100))
         self.loadingLabel = QtWidgets.QLabel("LOADING", self)
         self.loadingLabel.setGeometry(QtCore.QRect(
             loading_pos[0], loading_pos[1], loading_size[0], loading_size[1]))
@@ -92,8 +92,8 @@ class loadingWindow(QWidget):
             200, 11
         )
         loadingBar_pos = (
-            self.get_size()[0]/2 - loadingBar_size[0]/2,
-            self.get_size()[1]/2 - loadingBar_size[1]/2 + 120,
+            int(self.get_size()[0]/2 - loadingBar_size[0]/2),
+            int(self.get_size()[1]/2 - loadingBar_size[1]/2 + 120),
         )
         self.loadingBar = QtWidgets.QProgressBar(self)
         self.loadingBar.setGeometry(QtCore.QRect(
@@ -124,11 +124,10 @@ class loadingWindow(QWidget):
         self.clicked = False
 
     def mouseMoveEvent(self, event):
-
         if self.clicked:
             dx = self.old_pos.x() - event.screenPos().x()
             dy = self.old_pos.y() - event.screenPos().y()
-            self.move(self.pos().x() - dx, self.pos().y() - dy)
+            self.move(int(self.pos().x() - dx), int(self.pos().y() - dy))
 
         self.old_pos = event.screenPos()
         return QWidget.mouseMoveEvent(self, event)
@@ -149,15 +148,15 @@ class loadingWindow(QWidget):
 
             angle = self.animation_angle + (i + 0.5) * (360 / ray_number)
             point1 = physics.rotate_point(origin, QPoint(
-                self.get_size()[0]/2 +
-                self.animation_line_distaance_from_center,
-                self.get_size()[1]/2
+                int(self.get_size()[0]/2 +
+                    self.animation_line_distaance_from_center),
+                int(self.get_size()[1]/2)
             ), angle)
 
             point2 = physics.rotate_point(origin, QPoint(
-                self.get_size()[0]/2 +
-                self.animation_line_distaance_from_center + self.animation_line_size,
-                self.get_size()[1]/2
+                int(self.get_size()[0]/2 +
+                    self.animation_line_distaance_from_center + self.animation_line_size),
+                int(self.get_size()[1]/2)
             ), angle)
 
             painter.drawLine(point1.x(), point1.y(), point2.x(), point2.y())
@@ -167,15 +166,15 @@ class loadingWindow(QWidget):
         for i in range(outer_ray_number):
             angle = (i + 0.5) * (360 / outer_ray_number)
             point1 = physics.rotate_point(origin, QPoint(
-                self.get_size()[0]/2 +
-                self.outer_lines_distance_from_center,
-                self.get_size()[1]/2
+                int(self.get_size()[0]/2 +
+                    self.outer_lines_distance_from_center),
+                int(self.get_size()[1]/2)
             ), angle)
 
             point2 = physics.rotate_point(origin, QPoint(
-                self.get_size()[0]/2 +
-                self.outer_lines_distance_from_center + self.outer_lines_size,
-                self.get_size()[1]/2
+                int(self.get_size()[0]/2 +
+                    self.outer_lines_distance_from_center + self.outer_lines_size),
+                int(self.get_size()[1]/2)
             ), angle)
             circle_gradient = QLinearGradient(QtCore.QPoint(
                 point1.x(), point1.y()), QtCore.QPoint(point2.x(), point2.y()))
@@ -198,7 +197,7 @@ class loadingWindow(QWidget):
             self.get_size()[0]/2+size, self.get_size()[1]/2+size
         )
         circle_gradient = QLinearGradient(QtCore.QPoint(
-            point1[0]-500, point1[1] + size), QtCore.QPoint(point2[0] + 500, point2[1] - size))
+            int(point1[0]-500), int(point1[1] + size)), QtCore.QPoint(int(point2[0] + 500), int(point2[1] - size)))
         cc0 = QColor("#140f06")
         cc1 = QColor("#231b0b")
         cc2 = QColor("#362a11")
@@ -222,8 +221,8 @@ class loadingWindow(QWidget):
         pen.setBrush(circle_gradient)
         painter.setPen(pen)
 
-        painter.drawEllipse(point1[0], point1[1], point2[0] -
-                            point1[0], point2[1] - point1[1])
+        painter.drawEllipse(int(point1[0]), int(point1[1]), int(point2[0] -
+                                                                point1[0]), int(point2[1] - point1[1]))
         # painter.drawRect(point1[0], point1[1], point2[0] -
         #                  point1[0], point2[1] - point1[1])
 
@@ -235,25 +234,26 @@ class loadingWindow(QWidget):
         line_size = 500
         line = (point1[0], self.get_size()[1]/2,
                 point1[0]-line_size, self.get_size()[1]/2)
-        painter.drawLine(line[0], line[1], line[2], line[3])
+        painter.drawLine(int(line[0]), int(line[1]),
+                         int(line[2]), int(line[3]))
 
-        line2 = (point2[0], self.get_size()[1]/2,
-                 point2[0]+line_size, self.get_size()[1]/2)
+        line2 = (int(point2[0]), int(self.get_size()[1]/2),
+                 int(point2[0]+line_size), int(self.get_size()[1]/2))
         painter.drawLine(line2[0], line2[1], line2[2], line2[3])
 
         # draw diamonds
         diamond_number = 22
         diamond_template = [
-            QPoint(-self.diamond_vertical_size/2, 0),
-            QPoint(0, +self.diamond_horizontal_size/2),
-            QPoint(+self.diamond_vertical_size/2, 0),
-            QPoint(0, -self.diamond_horizontal_size/2),
+            QPoint(int(-self.diamond_vertical_size/2), 0),
+            QPoint(0, int(+self.diamond_horizontal_size/2)),
+            QPoint(int(+self.diamond_vertical_size/2), 0),
+            QPoint(0, int(-self.diamond_horizontal_size/2)),
         ]
         pen = QtGui.QPen(QColor("#806a3e"), 1.5, Qt.SolidLine,
                          Qt.RoundCap, Qt.RoundJoin)
 
         gradient = QLinearGradient(QtCore.QPoint(
-            self.get_size()[0]/2, 0), QtCore.QPoint(self.get_size()[0]/2, self.get_size()[1]))
+            int(self.get_size()[0]/2), 0), QtCore.QPoint(int(self.get_size()[0]/2), self.get_size()[1]))
         dc0 = QColor("#140f06")
         # dc1 = QColor("#231b0b")
         # dc2 = QColor("#362a11")
@@ -277,9 +277,9 @@ class loadingWindow(QWidget):
         for i in range(diamond_number):
             angle = (i + 0.5) * (360 / diamond_number)
             diamond_middle = physics.rotate_point(origin, QPoint(
-                self.get_size()[0]/2 +
-                self.diamond_distance_from_center + self.diamond_vertical_size/2,
-                self.get_size()[1]/2
+                int(self.get_size()[0]/2 +
+                    self.diamond_distance_from_center + self.diamond_vertical_size/2),
+                int(self.get_size()[1]/2)
             ), angle)
 
             new_diamond = physics.process_diamond(
